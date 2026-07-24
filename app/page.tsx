@@ -1,21 +1,29 @@
+import { Calendar, Map, PoundSterling, type LucideIcon } from "lucide-react";
+
 const SIGN_UP_URL = "https://chambers-valley-tracker.vercel.app/sign-up";
 const SIGN_IN_URL = "https://chambers-valley-tracker.vercel.app/sign-in";
 
-const features = [
+const SECTION_PADDING = "py-[60px] md:py-[80px]";
+
+const features: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}[] = [
   {
-    emoji: "📅",
+    icon: Calendar,
     title: "Your week at a glance",
     description:
       "See every upcoming job in date order the moment you open the app. No digging through a notebook or scrolling through texts.",
   },
   {
-    emoji: "💷",
+    icon: PoundSterling,
     title: "Know what you'll earn",
     description:
       "Track quoted and completed jobs, see your weekly earnings target, and know exactly what's outstanding — so January never catches you off guard.",
   },
   {
-    emoji: "🗺️",
+    icon: Map,
     title: "See where you're going",
     description:
       "An interactive map shows all your jobs for the week so you can plan your route, spot gaps, and say yes to new customers in areas you're already visiting.",
@@ -63,33 +71,9 @@ const pricingFeatures = [
   "Quote generator & mileage tracker",
 ];
 
-function Nav() {
-  return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-white">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold text-[#0a0a0a]">Patch</span>
-        <div className="flex items-center gap-5">
-          <a
-            href={SIGN_IN_URL}
-            className="text-[15px] text-[#0a0a0a] transition-colors hover:text-muted"
-          >
-            Sign in
-          </a>
-          <a
-            href={SIGN_UP_URL}
-            className="rounded-lg bg-[#0a0a0a] px-[18px] py-2 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
-          >
-            Start free trial
-          </a>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 function Hero() {
   return (
-    <section className="bg-surface px-6 py-20 md:py-28">
+    <section className={`bg-surface px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <h1 className="text-[36px] font-bold leading-tight text-[#0a0a0a] md:text-[52px]">
           The job tracker built for gardeners
@@ -122,28 +106,29 @@ function Hero() {
 
 function FeatureCards() {
   return (
-    <section id="features" className="px-6 py-20">
+    <section id="features" className={`px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-[28px] font-semibold text-[#0a0a0a] md:text-[32px]">
           Everything you need to run your round
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-xl border border-border bg-white p-7"
-            >
-              <span className="text-4xl" role="img" aria-hidden="true">
-                {feature.emoji}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-[#0a0a0a]">
-                {feature.title}
-              </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.title}
+                className="rounded-[14px] border-[1.5px] border-[#e5e5e5] bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+              >
+                <Icon width={32} height={32} color="#0a0a0a" strokeWidth={1.75} />
+                <h3 className="mt-4 text-lg font-semibold text-[#0a0a0a]">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-[1.6] text-[#737373]">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -152,7 +137,7 @@ function FeatureCards() {
 
 function HowItWorks() {
   return (
-    <section className="bg-surface px-6 py-20">
+    <section className={`bg-surface px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto max-w-2xl">
         <h2 className="mb-12 text-center text-[28px] font-semibold text-[#0a0a0a] md:text-[32px]">
           Up and running in minutes
@@ -177,7 +162,7 @@ function HowItWorks() {
 
 function FeatureList() {
   return (
-    <section className="px-6 py-20">
+    <section className={`px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-12 text-center text-[28px] font-semibold text-[#0a0a0a] md:text-[32px]">
           What&apos;s included
@@ -199,7 +184,7 @@ function FeatureList() {
 
 function Pricing() {
   return (
-    <section className="bg-surface px-6 py-20">
+    <section className={`bg-surface px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-[28px] font-semibold text-[#0a0a0a] md:text-[32px]">
           Simple pricing
@@ -214,7 +199,10 @@ function Pricing() {
           <ul className="mb-8 flex flex-col gap-3">
             {pricingFeatures.map((feature) => (
               <li key={feature} className="flex items-start gap-2.5">
-                <span className="mt-0.5 shrink-0 text-tick" aria-hidden="true">
+                <span
+                  className="mt-0.5 shrink-0 font-medium text-[#16a34a]"
+                  aria-hidden="true"
+                >
                   ✓
                 </span>
                 <span className="text-[15px] text-[#0a0a0a]">{feature}</span>
@@ -241,7 +229,7 @@ function Pricing() {
 
 function FinalCTA() {
   return (
-    <section className="bg-[#0a0a0a] px-6 py-20">
+    <section className={`bg-[#0a0a0a] px-6 ${SECTION_PADDING}`}>
       <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
         <h2 className="text-[28px] font-bold text-white md:text-[36px]">
           Ready to get your patch organised?
@@ -277,7 +265,6 @@ function Footer() {
 export default function Home() {
   return (
     <>
-      <Nav />
       <main>
         <Hero />
         <FeatureCards />
