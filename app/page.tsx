@@ -63,17 +63,9 @@ const includedFeatures = [
   "Works on iPhone and Android — add to home screen",
 ];
 
-const pricingFeatures = [
-  "Your week at a glance",
-  "Weekly earnings tracker",
-  "Interactive job map",
-  "Customer & job management",
-  "Quote generator & mileage tracker",
-];
-
 function Hero() {
   return (
-    <section className={`bg-surface px-6 ${SECTION_PADDING}`}>
+    <section className="bg-surface px-6 pt-[80px] pb-[60px] md:pb-[80px]">
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <h1 className="text-[36px] font-bold leading-tight text-[#0a0a0a] md:text-[52px]">
           The job tracker built for gardeners
@@ -184,30 +176,39 @@ function FeatureList() {
 
 function Pricing() {
   return (
-    <section className={`bg-surface px-6 ${SECTION_PADDING}`}>
-      <div className="mx-auto max-w-5xl">
+    <section className={`overflow-visible bg-surface px-6 ${SECTION_PADDING}`}>
+      <div className="mx-auto max-w-5xl overflow-visible">
         <h2 className="mb-12 text-center text-[28px] font-semibold text-[#0a0a0a] md:text-[32px]">
           Simple pricing
         </h2>
-        <div className="mx-auto max-w-[400px] rounded-2xl border-2 border-[#0a0a0a] bg-white p-8">
+        <div className="mx-auto max-w-[400px] overflow-visible rounded-2xl border-2 border-[#0a0a0a] bg-white p-8">
           <p className="text-[48px] font-bold leading-none text-[#0a0a0a]">
             £4.99
             <span className="text-2xl font-bold">/month</span>
           </p>
           <p className="mt-2 text-[15px] text-muted">after your free trial</p>
           <hr className="my-6 border-border" />
-          <ul className="mb-8 flex flex-col gap-3">
-            {pricingFeatures.map((feature) => (
-              <li key={feature} className="flex items-start gap-2.5">
-                <span
-                  className="mt-0.5 shrink-0 font-medium text-[#16a34a]"
-                  aria-hidden="true"
-                >
-                  ✓
-                </span>
-                <span className="text-[15px] text-[#0a0a0a]">{feature}</span>
-              </li>
-            ))}
+          <ul className="mb-8 flex flex-col gap-3 overflow-visible">
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5 shrink-0 font-medium text-[#16a34a]" aria-hidden="true">✓</span>
+              <span className="text-[15px] text-[#0a0a0a]">Your week at a glance</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5 shrink-0 font-medium text-[#16a34a]" aria-hidden="true">✓</span>
+              <span className="text-[15px] text-[#0a0a0a]">Weekly earnings tracker</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5 shrink-0 font-medium text-[#16a34a]" aria-hidden="true">✓</span>
+              <span className="text-[15px] text-[#0a0a0a]">Interactive job map</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5 shrink-0 font-medium text-[#16a34a]" aria-hidden="true">✓</span>
+              <span className="text-[15px] text-[#0a0a0a]">Customer & job management</span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <span className="mt-0.5 shrink-0 font-medium text-[#16a34a]" aria-hidden="true">✓</span>
+              <span className="text-[15px] text-[#0a0a0a]">Quote generator & mileage tracker</span>
+            </li>
           </ul>
           <a
             href={SIGN_UP_URL}
@@ -265,7 +266,7 @@ function Footer() {
 export default function Home() {
   return (
     <>
-      <main>
+      <main className="overflow-visible">
         <Hero />
         <FeatureCards />
         <HowItWorks />

@@ -4,8 +4,16 @@ const SIGN_IN_URL = "https://chambers-valley-tracker.vercel.app/sign-in";
 export function Nav() {
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-[#e5e5e5] bg-white"
-      style={{ position: "sticky", top: 0, zIndex: 50 }}
+      className="fixed top-0 right-0 left-0 z-[100] border-b border-[#e5e5e5] bg-white"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        background: "white",
+        borderBottom: "1px solid #e5e5e5",
+      }}
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <span className="text-lg font-bold text-[#0a0a0a]">Patch</span>
