@@ -1,5 +1,5 @@
-const SIGN_UP_URL = "https://chambers-valley-tracker.vercel.app/sign-up";
-const SIGN_IN_URL = "https://chambers-valley-tracker.vercel.app/sign-in";
+const SIGN_UP_URL = "https://my.patchapp.app/sign-up";
+const SIGN_IN_URL = "https://my.patchapp.app/sign-in";
 
 export function Nav() {
   return (
